@@ -5,10 +5,10 @@ const mongoose = require('mongoose');
 const UserRoute = require('../routes/User.js');
 
 const app = express();
-app.use('/user'.UserRoute);
 
+
+app.use('/user',UserRoute);
 app.use(bodyParser.urlencoded({ extended: true }))
-
 app.use(bodyParser.json())
 
 // configuration of database
