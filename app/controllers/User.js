@@ -70,3 +70,22 @@ exports.update = async (req, res) => {
         });
     });
 };
+
+// Delete operation of a user with the specified id 
+exports.destroy = async (req, res) => {
+    await UserModel.findByIdAndRemove(req.params.id).then(data => {
+        if (!data) {
+          res.status(404).send({
+            message: `User not found.`
+          });
+        } else {
+          res.send({
+            message: "User deleted successfully!"
+          });
+        }
+    }).catch(err => {
+        res.status(500).send({
+          message: err.message
+        });
+    });
+};
