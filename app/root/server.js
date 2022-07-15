@@ -2,10 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const dbConfig = require('../root/config/database_config');
 const mongoose = require('mongoose');
-
+const UserRoute = require('../routes/User.js');
 
 const app = express();
-
+app.use('/user'.UserRoute);
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
