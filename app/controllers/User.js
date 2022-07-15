@@ -25,3 +25,13 @@ exports.create = async (req, res) => {
     });
 };
     
+
+// Retrieve operation of all users from DB
+exports.findAll = async (req, res) => {
+    try {
+        const user = await UserModel.find();
+        res.status(200).json(user);
+    } catch(error) {
+        res.status(404).json({message: error.message});
+    }
+};
