@@ -5,11 +5,11 @@ const mongoose = require('mongoose');
 const UserRoute = require('../routes/User');
 
 const app = express();
-
-
-app.use('/api/user',UserRoute);
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
+app.use('/api/user',UserRoute);
+
 
 // configuration of database
 mongoose.Promise = global.Promise;
