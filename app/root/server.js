@@ -26,7 +26,7 @@ mongoose.connect(dbConfig.url, {
 
 
 app.get('/', (req, res) => {
-    res.json({"message": "Hello to test CRUD app"});
+    res.json({"message": "RestAPI is working!"});
 });
 
 app.listen(1010, () => {
