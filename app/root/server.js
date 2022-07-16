@@ -2,13 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const dbConfig = require('../root/config/database_config');
 const mongoose = require('mongoose');
-
+const UserRoute = require('../routes/User');
 
 const app = express();
 
 
+app.use('/api/user',UserRoute);
 app.use(bodyParser.urlencoded({ extended: true }))
-
 app.use(bodyParser.json())
 
 // configuration of database
@@ -26,7 +26,7 @@ mongoose.connect(dbConfig.url, {
 
 
 app.get('/', (req, res) => {
-    res.json({"message": "Hello to test CRUD app"});
+    res.json({"message": "RestAPI is working!"});
 });
 
 app.listen(1010, () => {
